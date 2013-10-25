@@ -26,7 +26,7 @@ void setup() {
    point = new PVector(150, 150, 50);
    point2 = new PVector(100, 100, 25);
    point3 = new PVector(200, 200, 60);
-   point4 = new PVector(150,150,50);
+   point4 = new PVector(-100, -100, -25);
    axis = new PVector(100, 300, 200);
    xsect = nearestPoint(origin, axis, point);
    xsect2 = nearestPoint(origin, axis, point2);
@@ -82,7 +82,7 @@ void draw() {
   point = rotate(pointn, axisn, radians(qangle-PI/2)); // Q rotation
   point2 = rotate(pointn2, axisn, radians(-qangle)); // Q rotation
   point3 = rotate(pointn3, axisn, radians(qangle*5)); // Q rotation
-  point4 = rotate(pointn4, axisn, radians(qangle-PI/2) );
+  point4 = rotate(pointn4, axisn, radians(qangle*0.25) );
   point.setMag(mag);
   point2.setMag(mag2);
   point3.setMag(mag3);
