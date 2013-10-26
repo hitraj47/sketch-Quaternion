@@ -13,9 +13,9 @@ private final color BLUE = color(0,0,255);
 
 float a = radians(25);
 PVector origin;
-PVector point, point2, point3, point4;
+PVector point, point2, point3, point4, point5;
 PVector axis;
-PVector xsect, xsect2, xsect3, xsect4;
+PVector xsect, xsect2, xsect3, xsect4, xsect5;
 float qangle; // increment this amt on each draw, in degrees
 
 void setup() {
@@ -27,11 +27,13 @@ void setup() {
    point2 = new PVector(100, 100, 25);
    point3 = new PVector(200, 200, 60);
    point4 = new PVector(-100, -100, -25);
+   point5 = new PVector(-200, -200, -60);
    axis = new PVector(100, 300, 200);
    xsect = nearestPoint(origin, axis, point);
    xsect2 = nearestPoint(origin, axis, point2);
    xsect3 = nearestPoint(origin, axis, point3);
    xsect4 = nearestPoint(origin, axis, point4);
+   xsect5 = nearestPoint(origin, axis, point5);
    qangle = 2.0; // increment
 }
     
@@ -69,36 +71,43 @@ void draw() {
   PVector pointn2 = point2.get();
   PVector pointn3 = point3.get();
   PVector pointn4 = point4.get();
+  PVector pointn5 = point5.get();
   
   axisn.normalize();
   pointn.normalize();
   pointn2.normalize();
   pointn3.normalize();
   pointn4.normalize();
+  pointn5.normalize();
   float mag = point.mag();
   float mag2 = point2.mag();
   float mag3 = point3.mag();
   float mag4 = point4.mag();
+  float mag5 = point5.mag();
   point = rotate(pointn, axisn, radians(qangle-PI/2)); // Q rotation
   point2 = rotate(pointn2, axisn, radians(-qangle)); // Q rotation
   point3 = rotate(pointn3, axisn, radians(qangle*5)); // Q rotation
   point4 = rotate(pointn4, axisn, radians(qangle*0.25) );
+  point5 = rotate(pointn5, axisn, radians(-qangle*2) );
   point.setMag(mag);
   point2.setMag(mag2);
   point3.setMag(mag3);
   point4.setMag(mag4);
+  point5.setMag(mag5);
   showPoint(origin, MAGENTA);
   showPoint(axis, MAGENTA);
   showPoint(point, BLACK);
   showPoint(point2, BLACK);
   showPoint(point3, BLACK);
   showPoint(point4, MAGENTA);
+  showPoint(point5, MAGENTA);
   stroke(127,127,127);
   strokeWeight(1);
   line(xsect.x, xsect.y, xsect.z, point.x, point.y, point.z);
   line(xsect2.x, xsect2.y, xsect2.z, point2.x, point2.y, point2.z);
   line(xsect3.x, xsect3.y, xsect3.z, point3.x, point3.y, point3.z);
   line(xsect4.x, xsect4.y, xsect4.z, point4.x, point4.y, point4.z);
+  line(xsect5.x, xsect5.y, xsect5.z, point5.x, point5.y, point5.z);
   //a += 0.01;
 }
 
