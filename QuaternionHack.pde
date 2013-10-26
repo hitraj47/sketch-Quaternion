@@ -22,7 +22,7 @@ void setup() {
   size(800, 600, OPENGL);
   fill(0, 153);
   noStroke();
-   origin = new PVector(0, 0, 0);
+   origin = new PVector(-100,-200,-162);
    point = new PVector(150, 150, 50);
    point2 = new PVector(100, 100, 25);
    point3 = new PVector(200, 200, 60);
